@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<locale.h>
+void cleanbuffer(void);
+
+void cleanbuffer(void){
+    char c;
+    while((c=getchar()) !='\n' && c !=EOF);  //Função setada para consumir os dados de buffer até encontrar uma nova linha(\n) ou até o final do arquivo (EOF)
+}
+
+int main(){
+    setlocale(LC_ALL,"Portuguese"); //Importa o encoding para o portugês e evita erros com a acentuação
+    
+    char COD[30], PAIS[30], ESTADO[30], CIDADE[30];
+    int POPULACAO, AREA, PIB, PT;
+
+    printf("Hoje iremos jogar Supertrunfo!\n");
+    printf("Nesta etapa você irá registrar suas cartas utilizando o seguinte padrão:\n");
+    printf("Cada país será dividido em oito estados, identificados pelas letras de A a H. \nCada estado terá quatro cidades, numeradas de 1 a 4. \nA combinação da letra do estado e o número da cidade define o código da carta\n(por exemplo, A01, A02, B01, B02).\n");
+
+    printf("Digite o código da carta:");
+    scanf("%29s",COD);
+    cleanbuffer();
+
+    printf("Digite o País:");
+    scanf("%29s",PAIS);
+    cleanbuffer();
+
+    printf("Digite o estado:");
+    scanf("%29s",ESTADO);
+    cleanbuffer();
+
+    printf("Digite a cidade:");
+    scanf("%29s",CIDADE);
+    cleanbuffer();
+
+    printf("Digite o tamanho da popoulação:");
+    scanf("%d",&POPULACAO);
+    cleanbuffer();
+
+    printf("Digite a Área da cidade em KM²:");
+    scanf("%d",&AREA);
+    cleanbuffer();
+
+    printf("Digite o PIB:");
+    scanf("%d",&PIB);
+    cleanbuffer();
+
+    printf("Digite a quantidade de pontos turísticos:");
+    scanf("%d", &PT);
+    cleanbuffer();
+
+    printf("\n=================================================================================\n");
+    printf("Os dados registrados foram:\n");
+    printf("Código da carta: %s\n",COD);
+    printf("País: %s\n",PAIS);
+    printf("Estado: %s\n",ESTADO);
+    printf("Cidade: %s\n",CIDADE);
+    printf("Tamanho Populacional: %d habitantes.\n",POPULACAO);
+    printf("Area da cidade: %dKM²\n",AREA);
+    printf("PIB: %d\n",PIB);
+    printf("Número de pontos turísticos: %d\n",PT);
+    getchar();
+    return 0;
+}
